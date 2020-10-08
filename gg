@@ -1,0 +1,84 @@
+e1_cs_pelican1
+
+(script command e1_cs_pelican1 
+  (begin 
+   (ai_place e1_fld_inf3/carrier0) 
+   (ai_place e1_fld_inf3/carrier1) 
+   (ai_place e1_fld_inf3/starting_locations_2) 
+   (sleep 1) 
+   (objects_attach (ai_vehicle_get ai_current_actor) chief_rear (ai_get_object e1_fld_inf3/carrier0)) 
+   (objects_attach (ai_vehicle_get ai_current_actor) pelican_e (ai_get_object e1_fld_inf3/carrier1)) 
+   (objects_attach (ai_vehicle_get ai_current_actor) pelican_e (ai_get_object e1_fld_inf3/starting_locations_2)) 
+   (cs_fly_by pelican1/p0) 
+   (set g_e1_talk 1) 
+   (set g_e1_pelican1_entering True) 
+   (cs_fly_by pelican1/p3) 
+   (objects_detach (ai_vehicle_get ai_current_actor) (ai_get_object e1_fld_inf3/carrier0)) 
+   (objects_detach (ai_vehicle_get ai_current_actor) (ai_get_object e1_fld_inf3/carrier1)) 
+   (objects_detach (ai_vehicle_get ai_current_actor) (ai_get_object e1_fld_inf3/starting_locations_2)) 
+   (sleep 1) 
+   (wake e1_carrier_drop) 
+   (set g_e1_talk 2) 
+   (set g_e1_pelican1_unloaded True) 
+   (cs_fly_by pelican1/p4) 
+   (cs_fly_by pelican1/p5) 
+   (ai_erase e1_cs_pelican1)
+  )
+)
+
+
+
+e1_carrier_drop
+
+(script dormant e1_carrier_drop 
+  (begin 
+   (object_set_velocity (ai_get_object e1_fld_inf3/carrier0) -5 0 0) 
+   (object_set_velocity (ai_get_object e1_fld_inf3/carrier1) -7 0 0) 
+   (object_set_velocity (ai_get_object e1_fld_inf3/starting_locations_2) -7 0 0) 
+   (sleep 30) 
+   (unit_set_current_vitality (ai_get_unit e1_fld_inf3/carrier0) 0.1 0) 
+   (unit_set_current_vitality (ai_get_unit e1_fld_inf3/carrier1) 0.1 0) 
+   (unit_set_current_vitality (ai_get_unit e1_fld_inf3/starting_locations_2) 0.1 0)
+  )
+)
+
+
+
+
+
+e1_cs_pelican1
+
+(script command e1_cs_pelican1 
+  (begin 
+   (ai_place e1_fld_inf3/carrier0) 
+   (ai_place e1_fld_inf3/carrier1) 
+   (sleep 1) 
+   (objects_attach (ai_vehicle_get ai_current_actor) chief_rear (ai_get_object e1_fld_inf3/carrier0) ) 
+   (objects_attach (ai_vehicle_get ai_current_actor) pelican_e (ai_get_object e1_fld_inf3/carrier1) ) 
+   (cs_fly_by pelican1/p0) 
+   (set g_e1_talk 1) 
+   (set g_e1_pelican1_entering True) 
+   (cs_fly_by pelican1/p3) 
+   (objects_detach (ai_vehicle_get ai_current_actor) (ai_get_object e1_fld_inf3/carrier0)) 
+   (objects_detach (ai_vehicle_get ai_current_actor) (ai_get_object e1_fld_inf3/carrier1)) 
+   (sleep 1) 
+   (wake e1_carrier_drop) 
+   (set g_e1_talk 2) 
+   (set g_e1_pelican1_unloaded True) 
+   (cs_fly_by pelican1/p4) 
+   (cs_fly_by pelican1/p5) 
+   (ai_erase e1_cs_pelican1)
+  )
+)
+
+e1_carrier_drop
+
+(script dormant e1_carrier_drop 
+  (begin 
+   (object_set_velocity (ai_get_object e1_fld_inf3/carrier0) -5 0 0) 
+   (object_set_velocity (ai_get_object e1_fld_inf3/carrier1) -4 0 0) 
+   (sleep 30) 
+   (unit_set_current_vitality (ai_get_unit e1_fld_inf3/carrier0) 0.1 0) 
+   (unit_set_current_vitality (ai_get_unit e1_fld_inf3/carrier1) 0.1 0)
+  )
+)
